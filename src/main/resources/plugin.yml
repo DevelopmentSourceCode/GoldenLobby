@@ -1,0 +1,9 @@
+name: GoldenLobby
+version: 1.0.2
+author: Ayley
+main: de.ayley.goldenlobby.main.GoldenLobby
+commands:
+  lb:
+  spawn:
+  setspawn:
+  build:
