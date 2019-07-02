@@ -1,3 +1,45 @@
 Settings:
-  #test
+  #LobbyType Server= Lobby ist Serverübergreifend
+  #LobbyType World= Lobby ist nur in der Jeweiligen Welt
   LobbyType: Server
+Items:
+  #In der Lore funktioniert nur § statt & als Farbcode
+  #Amount kann nicht kleiner als 0 sein
+  Vanish:
+    Slot: 0
+    Name: "&4Vanish"
+    Material: GLOWSTONE
+    ID: 0
+    Amout: 1
+    Lore:
+      - Zeigt dich
+      - Versteck dich
+  Compass:
+    Slot: 4
+    Name: "&2&lTeleporter"
+    Material: COMPASS
+    ID: 0
+    Amout: 1
+    Lore:
+      - Teleportier dich
+  Gadges:
+    Slot: 8
+    Name: "&5Gadges"
+    Material: ARROW
+    ID: 0
+    Amout: 1
+    Lore:
+      - Gadges
+  Cosmetics:
+    Slot: 87
+    Name: "&7Kosmetik"
+    Material: BOW
+    ID: 0
+    Amout: 2
+    Lore:
+      - Kosmetik
+JumpPad:
+  Plate: IRON_PLATE
+  Block: REDSTONE_BLOCK
+  Multiply: 2.5
+  Height: 1

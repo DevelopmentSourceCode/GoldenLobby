@@ -29,16 +29,12 @@ public class SpawnLocation {
     public SpawnLocation(){}
 
     public void setLocation(){
-        if(!exist()) {
             cfg.set("Spawn" + Spawn + ".World", location.getWorld().getName());
             cfg.set("Spawn" + Spawn + ".X", location.getX());
             cfg.set("Spawn" + Spawn + ".Y", location.getY());
             cfg.set("Spawn" + Spawn + ".Z", location.getZ());
             cfg.set("Spawn" + Spawn + ".Yaw", location.getYaw());
             cfg.set("Spawn" + Spawn + ".Pitch", location.getPitch());
-        }else {
-
-        }
             save();
     }
 
@@ -66,8 +62,6 @@ public class SpawnLocation {
         for(int i = 0; i <= keys;i++){
             out = cfg.getString("Spawn" + i + ".World") + "," + out;
         }
-        out.trim();
-        out.substring(0, out.length()-5);
         return out;
     }
 

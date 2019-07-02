@@ -1,9 +1,10 @@
 package de.ayley.goldenlobby.main;
 
 import de.ayley.goldenlobby.commands.BuildCMD;
+import de.ayley.goldenlobby.commands.ClearCMD;
 import de.ayley.goldenlobby.commands.SpawnCMD;
-import de.ayley.goldenlobby.events.BuildProtection;
-import de.ayley.goldenlobby.events.JoinQuitDeath;
+import de.ayley.goldenlobby.events.*;
+import de.ayley.goldenlobby.inventare.VanishInv;
 import de.ayley.goldenlobby.util.ConfigWerte;
 import de.ayley.goldenlobby.util.MessagesConfig;
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public class GoldenLobby extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this,"BungeeCord");
         MessagesConfig.setMessages();
         saveDefaultConfig();
         plugin = this;
@@ -24,17 +26,29 @@ public class GoldenLobby extends JavaPlugin {
         ConfigWerte.consoleMessage(getConfigWerte().Prefix);
         registerEvents(Bukkit.getPluginManager());
         registerCommands();
+        initFiles();
     }
 
     private void registerEvents(PluginManager pm){
-        pm.registerEvents(new JoinQuitDeath(),this);
-        pm.registerEvents(new BuildProtection(),this);
+        pm.registerEvents(new JoinQuitDamage(),this);
+        pm.registerEvents(new BuildDropProtection(),this);
+        pm.registerEvents(new MobSpawn(),this);
+        pm.registerEvents(new WeatherStormDay(), this);
+        pm.registerEvents(new InvHandler(),this);
+        pm.registerEvents(new InvHandlerVanish(), this);
+        pm.registerEvents(new JumpPad(), this);
+        pm.registerEvents(new SignTeleport(), this);
     }
 
     private void registerCommands(){
         getCommand("spawn").setExecutor(new SpawnCMD());
         getCommand("setspawn").setExecutor(new SpawnCMD());
         getCommand("build").setExecutor(new BuildCMD());
+        getCommand("clearlag").setExecutor(new ClearCMD());
+    }
+
+    private void initFiles(){
+        VanishInv.createVanishItemData();
     }
 
     public static GoldenLobby getPlugin() {

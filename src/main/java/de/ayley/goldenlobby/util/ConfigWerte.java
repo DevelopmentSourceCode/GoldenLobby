@@ -20,11 +20,19 @@ public class ConfigWerte {
     //JoinQuitDeath
     public final String Join = MessagesConfig.getCfg().getString("JoinQuitDeath.Join");
     public final String Quit = MessagesConfig.getCfg().getString("JoinQuitDeath.Quit");
-    public final String Death = MessagesConfig.getCfg().getString("JoinQuitDeath.Death");
 
     //Build
     public final String BuildOn = MessagesConfig.getCfg().getString("Build.On");
     public final String BuildOff = MessagesConfig.getCfg().getString("Build.Off");
+
+    //Vanish
+    public final String Hide = MessagesConfig.getCfg().getString("Vanish.Hide");
+    public final String Show = MessagesConfig.getCfg().getString("Vanish.Show");
+    public final String HideVIPPremium = MessagesConfig.getCfg().getString("Vanish.HideVIPPremium");
+
+    //Clear
+    public final String ClearMobs = MessagesConfig.getCfg().getString("Clear.Lag");
+    public final String ClearChat = MessagesConfig.getCfg().getString("Clear.Chat");
 
     public static void playerMessage(Player player, String message){
         player.sendMessage(ChatColor.translateAlternateColorCodes('&',message));

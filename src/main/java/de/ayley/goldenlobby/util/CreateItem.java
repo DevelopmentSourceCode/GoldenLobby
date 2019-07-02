@@ -6,6 +6,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class CreateItem {
 
@@ -13,12 +14,17 @@ public class CreateItem {
     private ItemMeta itemMeta = null;
 
     public CreateItem(Material material,short id){
-        this.itemStack = new ItemStack(material, id);
+        this.itemStack = new ItemStack(material,id);
         this.itemMeta = itemStack.getItemMeta();
     }
 
     public CreateItem(Material material){
         this.itemStack = new ItemStack(material, (short)0);
+        this.itemMeta = itemStack.getItemMeta();
+    }
+
+    public CreateItem(Material material, int amout, short dyeColor){
+        this.itemStack = new ItemStack(material,amout,dyeColor);
         this.itemMeta = itemStack.getItemMeta();
     }
 
