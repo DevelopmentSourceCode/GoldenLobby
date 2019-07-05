@@ -1,9 +1,11 @@
 package de.ayley.goldenlobby.events;
 
 import de.ayley.goldenlobby.enums.LobbyType;
+import de.ayley.goldenlobby.inventare.TeleporterInv;
 import de.ayley.goldenlobby.inventare.VanishInv;
 import de.ayley.goldenlobby.main.GoldenLobby;
 import de.ayley.goldenlobby.util.ArrayLists;
+import de.ayley.goldenlobby.util.ConfigWerte;
 import de.ayley.goldenlobby.util.LobbyTypeConfig;
 import de.ayley.goldenlobby.util.SpawnLocation;
 import org.bukkit.ChatColor;
@@ -21,13 +23,18 @@ public class InvHandler implements Listener {
         Player player = e.getPlayer();
         Material material1 = Material.getMaterial(GoldenLobby.getPlugin().getConfig().getString("Items.Vanish.Material"));
         String vanish = GoldenLobby.getPlugin().getConfig().getString("Items.Vanish.Name");
+        String Teleporter = GoldenLobby.getPlugin().getConfig().getString("Items.Compass.Name");
         if(!ArrayLists.getBuild().contains(player.getName())) {
             if (LobbyTypeConfig.getLobbyType() == LobbyType.Server) {
                 if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     if (player.getItemInHand().getAmount() >= 0) {
                         if (player.getItemInHand().getType().equals(material1) && player.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', vanish))) {
-                            setInv();
+                            VanishInv.setVanishInv();
                             player.openInventory(VanishInv.getInventory());
+                        }
+                        if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Teleporter))){
+                            TeleporterInv.setTeleporterInv(player);
+                            player.openInventory(TeleporterInv.getInventory());
                         }
                     }
                 }
@@ -41,8 +48,12 @@ public class InvHandler implements Listener {
                             if (player.getItemInHand().getAmount() >= 0) {
                                 if(e.getItem().hasItemMeta() && e.getItem() != null) {
                                     if (e.getItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', vanish))) {
-                                        setInv();
+                                        VanishInv.setVanishInv();
                                         player.openInventory(VanishInv.getInventory());
+                                    }
+                                    if(e.getItem().getItemMeta().getDisplayName().equals(ChatColor.translateAlternateColorCodes('&', Teleporter))){
+                                        TeleporterInv.setTeleporterInv(player);
+                                        player.openInventory(TeleporterInv.getInventory());
                                     }
                                 }
                             }
@@ -53,7 +64,4 @@ public class InvHandler implements Listener {
         }
     }
 
-    private void setInv(){
-        VanishInv.setVanishInv();
-    }
 }

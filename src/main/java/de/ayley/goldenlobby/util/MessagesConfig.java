@@ -24,7 +24,7 @@ public class MessagesConfig {
         }
         if(!cfg.contains("Spawn")){
             cfg.set("Spawn.Teleportation", "&2Du wurdest zum Spawn &6%spawnnummer% &2Teleportiert!");
-            cfg.set("Spawn.NotExist", "&4Der Spawnpunkt existiert nicht, bitte setze ihn mit &6/setspawn <Spawnnummer>!");
+            cfg.set("Spawn.NotExist", "&4Der Spawnpunkt existiert nicht, bitte setze ihn mit &6/lb setspawn <Spawnnummer>!");
             cfg.set("Spawn.Set", "&2Du hast den Spawn &6%SpawnNummer% &2gesetzt!");
             cfg.set("Spawn.AlreadySet", "&2Du hast den Spawn &6%SpawnNummer% &2umgesetzt!");
         }
@@ -44,6 +44,10 @@ public class MessagesConfig {
         if(!cfg.contains("Clear")){
             cfg.set("Clear.Lag", "Alle Monster/Items/Animals wurden entfernt!");
             cfg.set("Clear.Chat", "Der Chat wurde gelöscht!");
+        }
+        if(!cfg.contains("SetItem")){
+            cfg.set("SetItem.Command", "&4Nutze /lb setitem <ItemName> <Spawn(true/false)> <Slot> <lore>");
+            cfg.set("SetItem.Set", "&2Das Item wurde mit der Location gespeichert!");
         }
         save();
     }

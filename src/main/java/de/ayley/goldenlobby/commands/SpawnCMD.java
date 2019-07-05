@@ -16,31 +16,6 @@ public class SpawnCMD implements CommandExecutor {
 
         if(sender instanceof Player) {
             Player player = (Player) sender;
-            if (cmd.getName().equalsIgnoreCase("setspawn")) {
-                if (player.hasPermission("Lobby.Admin")) {
-                    if (args.length == 0) {
-                        SpawnLocation spawnLocation = new SpawnLocation(player.getLocation(), 0);
-                        if (spawnLocation.exist()) {
-                            spawnLocation.setLocation();
-                            ConfigWerte.playerMessage(player, GoldenLobby.getConfigWerte().Prefix + GoldenLobby.getConfigWerte().SpawnAlreadySet.replace("%SpawnNummer%", "0"));
-                        } else {
-                            spawnLocation.setLocation();
-                            ConfigWerte.playerMessage(player, GoldenLobby.getConfigWerte().Prefix + GoldenLobby.getConfigWerte().SpawnSet.replace("%SpawnNummer%", "0"));
-                        }
-                    }
-                    if (args.length == 1) {
-                        SpawnLocation spawnLocation = new SpawnLocation(player.getLocation(), Integer.parseInt(args[0]));
-                        if (spawnLocation.exist()) {
-                            spawnLocation.setLocation();
-                            ConfigWerte.playerMessage(player, GoldenLobby.getConfigWerte().Prefix + GoldenLobby.getConfigWerte().SpawnAlreadySet.replace("%SpawnNummer%", args[0]));
-                        } else {
-                            spawnLocation.setLocation();
-                            ConfigWerte.playerMessage(player, GoldenLobby.getConfigWerte().Prefix + GoldenLobby.getConfigWerte().SpawnSet.replace("%SpawnNummer%", args[0]));
-                        }
-                    }
-                } else
-                    ConfigWerte.playerMessage(player, GoldenLobby.getConfigWerte().Prefix + GoldenLobby.getConfigWerte().NoPerm);
-            }
                     if (cmd.getName().equalsIgnoreCase("spawn")) {
                         if (args.length == 0) {
                             SpawnLocation spawnLocation = new SpawnLocation(0);

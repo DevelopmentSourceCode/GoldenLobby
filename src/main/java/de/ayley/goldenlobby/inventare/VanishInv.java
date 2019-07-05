@@ -46,7 +46,6 @@ public class VanishInv {
         if(!cfg.contains("Settings")){
             cfg.set("Settings.InvType", "Kommt bald!");
             cfg.set("Settings.InvName", "Player Hider");
-            cfg.set("Settings.VIPPremium", "Vip,Premium");
         }
         save();
     }

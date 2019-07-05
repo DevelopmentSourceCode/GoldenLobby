@@ -6,6 +6,6 @@ commands:
   lb:
   spawn:
     aliases: [lobby]
-  setspawn:
   build:
   clearlag:
+  setitem:

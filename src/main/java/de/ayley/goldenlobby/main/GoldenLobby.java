@@ -1,9 +1,8 @@
 package de.ayley.goldenlobby.main;
 
-import de.ayley.goldenlobby.commands.BuildCMD;
-import de.ayley.goldenlobby.commands.ClearCMD;
-import de.ayley.goldenlobby.commands.SpawnCMD;
+import de.ayley.goldenlobby.commands.*;
 import de.ayley.goldenlobby.events.*;
+import de.ayley.goldenlobby.inventare.TeleporterInv;
 import de.ayley.goldenlobby.inventare.VanishInv;
 import de.ayley.goldenlobby.util.ConfigWerte;
 import de.ayley.goldenlobby.util.MessagesConfig;
@@ -38,17 +37,21 @@ public class GoldenLobby extends JavaPlugin {
         pm.registerEvents(new InvHandlerVanish(), this);
         pm.registerEvents(new JumpPad(), this);
         pm.registerEvents(new SignTeleport(), this);
+        pm.registerEvents(new DoubleJump(),this);
+        pm.registerEvents(new InvHandlerTeleport(), this);
     }
 
     private void registerCommands(){
         getCommand("spawn").setExecutor(new SpawnCMD());
-        getCommand("setspawn").setExecutor(new SpawnCMD());
         getCommand("build").setExecutor(new BuildCMD());
         getCommand("clearlag").setExecutor(new ClearCMD());
+        getCommand("setitem").setExecutor(new TeleportItemCMD());
+        getCommand("lb").setExecutor(new SetSpawnCMD());
     }
 
     private void initFiles(){
         VanishInv.createVanishItemData();
+        TeleporterInv.createTeleportInvData();
     }
 
     public static GoldenLobby getPlugin() {

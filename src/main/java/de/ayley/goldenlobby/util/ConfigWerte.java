@@ -34,6 +34,10 @@ public class ConfigWerte {
     public final String ClearMobs = MessagesConfig.getCfg().getString("Clear.Lag");
     public final String ClearChat = MessagesConfig.getCfg().getString("Clear.Chat");
 
+    //SetItem
+    public final String SetItemCMD= MessagesConfig.getCfg().getString("SetItem.Command");
+    public final String SetItem = MessagesConfig.getCfg().getString("SetItem.Set");
+
     public static void playerMessage(Player player, String message){
         player.sendMessage(ChatColor.translateAlternateColorCodes('&',message));
     }

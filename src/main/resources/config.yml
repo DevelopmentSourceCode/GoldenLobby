@@ -31,7 +31,7 @@ Items:
     Lore:
       - Gadges
   Cosmetics:
-    Slot: 87
+    Slot: 7
     Name: "&7Kosmetik"
     Material: BOW
     ID: 0
@@ -39,7 +39,12 @@ Items:
     Lore:
       - Kosmetik
 JumpPad:
+  Activate: true
   Plate: IRON_PLATE
   Block: REDSTONE_BLOCK
+  Multiply: 2.5
+  Height: 1
+DoubleJump:
+  Activate: true
   Multiply: 2.5
   Height: 1
